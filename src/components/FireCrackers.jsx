@@ -56,7 +56,7 @@ export default function FireCrackers() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none"
+      className="fixed z-30 top-0 left-0 w-full h-full pointer-events-none"
     />
   );
 }

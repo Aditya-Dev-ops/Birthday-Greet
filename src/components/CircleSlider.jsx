@@ -37,7 +37,7 @@ export default function CircleSlider({ media, onAnimationEnd }) {
   return (
     <div
       ref={sliderRef}
-      className="slider"
+      className="slider z-50"
       style={{ "--quantity": media.length }}
     >
       {media.map((m, i) => (
