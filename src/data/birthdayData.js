@@ -180,7 +180,7 @@ export const birthdayData = {
       },
       {
         type: "image",
-        src: "../../public/IMG_20250509_210458_789.jpg",
+        src: "/IMG_20250509_210458_789.jpg",
         story: "With you, forever feels too short ⏰❤️",
         bgGradient: "linear-gradient(135deg, #5ee7df, #b490ca)", // aqua → lavender
         textColor: "#312e81"
