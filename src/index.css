@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+.slider {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  transform-style: preserve-3d;
+  animation: autoRotate 20s linear infinite;
+  margin: 0 auto;
+}
+
+.item {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(calc((var(--i) - 1) * (360deg / var(--quantity))))
+             translateZ(550px);
+}
+
+.item img,
+.item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border: 4px solid #fff;
+}
+
+/* Autoplay video should be muted + looped */
+.item video {
+  pointer-events: none; /* prevents accidental pause */
+}
+
+/* Rotation animation */
+@keyframes autoRotate {
+  from {
+    transform: perspective(1000px) rotateY(0deg) rotateX(-12deg);
+  }
+  to {
+    transform: perspective(1000px) rotateY(360deg) rotateX(-12deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider {
+    width: 160px;
+    height: 220px;
+  }
+  .item {
+    transform: rotateY(calc((var(--i) - 1) * (360deg / var(--quantity))))
+               translateZ(320px);
+  }
+}
+
+/* Optional slow spin helpers */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 30s linear infinite;
+}
